@@ -17,7 +17,7 @@
 <a href="#">Images</a>
 </li>
 <li {% if section == "people" %}class="selected"{% endif %}>
-<a href="#">People</a>
+<a href="{% url "user_list" %}">People</a>
 </li>
 </ul>
 {% endif %}
@@ -49,5 +49,14 @@ Hello {{ request.user.first_name|default:request.user.username }},
 {% block content %}
 {% endblock %}
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.4/js.cookie.js" integrity="sha512-DiOzkKkU4hOyj8OOxWFiiSndSmx86TZPig/6R9KR+xymqw1e77Emvc2ZA8dLaS4V/wVXCX8j8c/ktOSALeDd+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const csrftoken = Cookies.get('csrftoken');
+    document.addEventListener('DOMContentLoaded', (event) => {
+    // DOM loaded
+    {% block domready %}
+    {% endblock %}
+    })
+</script>
 </body>
 </html>

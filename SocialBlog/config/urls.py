@@ -22,6 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
+    path('social_auth/', include('social_django.urls')),
+    path('images/', include('images.urls', namespace='images')),
+   
 ]
 
 if settings.DEBUG:
